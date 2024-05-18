@@ -1,82 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF xml:lang="en"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:rdfs="http://www.w3.org/200/01/rdf-schema#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:grh="http://GHRJ.com/grh/"
-    >
+    xmlns:grh="http://GHRJ.com/grh#">
 
-    <!-- Class Employee -->
+    <!-- Classes -->
     <owl:Class rdf:about="http://GHRJ.com/grh#Employee"/>
-    <!-- sous class -->
     <owl:Class rdf:about="http://GHRJ.com/grh#Supervisor">
         <rdfs:subClassOf rdf:resource="http://GHRJ.com/grh#Employee"/>
     </owl:Class>
-    <!-- properties -->
+    <owl:Class rdf:about="http://GHRJ.com/grh#Skill"/>
+    <owl:Class rdf:about="http://GHRJ.com/grh#Training"/>
+    <owl:Class rdf:about="http://GHRJ.com/grh#Project"/>
+    <owl:Class rdf:about="http://GHRJ.com/grh#Department"/>
+    <owl:Class rdf:about="http://GHRJ.com/grh#JobPosition"/>
+
+    <!-- Properties -->
     <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#nom">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty" />
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#prenom">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty" />
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
-        <rdfs:range rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#dateNaissance">
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
-        <rdfs:range rdf:datatype="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
     </owl:DatatypeProperty>
     <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#genre">
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
-        <rdfs:range rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
-    <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#titleJob">
-        <rdfs:domain rdf:resource="http://GHRJ.com/grh#JobPosition"/>
-        <rdfs:range rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#salary">
+        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     </owl:DatatypeProperty>
-    <!-- ajouter les individues -->
+    <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#email">
+        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
 
-    <!-- relations -->
-    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#worksOn">
-        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
-        <rdfs:range rdf:resource="http://GHRJ.com/grh#Project"/>
-    </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#hasSkill">
-        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
-        <rdfs:range rdf:resource="http://GHRJ.com/grh#Skill"/>
-    </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#doTraining">
-        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
-        <rdfs:range rdf:resource="http://GHRJ.com/grh#Training"/>
-    </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#occupy">
-        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
-        <rdfs:range rdf:resource="http://GHRJ.com/grh#JobPosition"/>
-    </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#memberOf">
-        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
-        <rdfs:range rdf:resource="http://GHRJ.com/grh#Department"/>
-    </owl:ObjectProperty>
-    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#supervises">
-        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Supervisor"/>
-        <rdfs:range rdf:resource="http://GHRJ.com/grh#Employee"/>
-    </owl:ObjectProperty>
-
-
-    <!-- Class Skill -->
-    <owl:Class rdf:about="http://GHRJ.com/grh#Skill"/>
-    <!-- properties -->
     <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#title">
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Skill"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
-
-
-    <!-- Class Training -->
-    <owl:Class rdf:about="http://GHRJ.com/grh#Training"/>
-    <!-- properties -->
-    <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#title">
+    <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#trainingtitle">
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Training"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
@@ -84,20 +54,11 @@
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Training"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
-    <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#hasPrice">
+    <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#price">
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Training"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
-    <!-- relations -->
-    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#gives">
-        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Training"/>
-        <rdfs:range rdf:resource="http://GHRJ.com/grh#Skill"/>
-    </owl:ObjectProperty>
 
-
-    <!-- Class Project -->
-    <owl:Class rdf:about="http://GHRJ.com/grh#Project"/>
-    <!-- properties -->
     <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#name">
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Project"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -112,9 +73,51 @@
     </owl:DatatypeProperty>
     <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#budget">
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Project"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-        </owl:DatatypeProperty>
-    <!-- relations -->
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#name">
+        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Department"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#name">
+        <rdfs:domain rdf:resource="http://GHRJ.com/grh#JobPosition"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <!-- Object Properties -->
+    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#worksOn">
+        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
+        <rdfs:range rdf:resource="http://GHRJ.com/grh#Project"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#hasSkill">
+        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
+        <rdfs:range rdf:resource="http://GHRJ.com/grh#Skill"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#doTraining">
+        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
+        <rdfs:range rdf:resource="http://GHRJ.com/grh#Training"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#occupies">
+        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
+        <rdfs:range rdf:resource="http://GHRJ.com/grh#JobPosition"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#memberOf">
+        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Employee"/>
+        <rdfs:range rdf:resource="http://GHRJ.com/grh#Department"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#supervises">
+        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Supervisor"/>
+        <rdfs:range rdf:resource="http://GHRJ.com/grh#Employee"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#gives">
+        <rdfs:domain rdf:resource="http://GHRJ.com/grh#Training"/>
+        <rdfs:range rdf:resource="http://GHRJ.com/grh#Skill"/>
+    </owl:ObjectProperty>
+
     <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#need">
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Project"/>
         <rdfs:range rdf:resource="http://GHRJ.com/grh#Employee"/>
@@ -128,15 +131,6 @@
         <rdfs:range rdf:resource="http://GHRJ.com/grh#Supervisor"/>
     </owl:ObjectProperty>
 
-    <!-- Class Departement -->
-    <owl:Class rdf:about="http://GHRJ.com/grh#Department"/>
-        <!-- properties -->
-        <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#name">
-            <rdfs:domain rdf:resource="http://GHRJ.com/grh#Department"/>
-            <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        </owl:DatatypeProperty>
-   
-    <!-- relations -->
     <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#haveAn">
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#Department"/>
         <rdfs:range rdf:resource="http://GHRJ.com/grh#Employee"/>
@@ -150,22 +144,287 @@
         <rdfs:range rdf:resource="http://GHRJ.com/grh#Supervisor"/>
     </owl:ObjectProperty>
 
-    <!-- Class JobPosition -->
-    <owl:Class rdf:about="http://GHRJ.com/grh#JobPosition"/>
-        <!-- properties -->
-        <owl:DatatypeProperty rdf:about="http://GHRJ.com/grh#name">
-            <rdfs:domain rdf:resource="http://GHRJ.com/grh#JobPosition"/>
-            <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        </owl:DatatypeProperty>
- 
-    <!-- relations -->
     <owl:ObjectProperty rdf:about="http://GHRJ.com/grh#requireForJobPosition">
         <rdfs:domain rdf:resource="http://GHRJ.com/grh#JobPosition"/>
         <rdfs:range rdf:resource="http://GHRJ.com/grh#Skill"/>
     </owl:ObjectProperty>
-    
+
+    <!-- Axiomes de Cardinalité -->
+    <owl:Class rdf:about="http://GHRJ.com/grh#Employee">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://GHRJ.com/grh#occupies"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://GHRJ.com/grh#JobPosition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://GHRJ.com/grh#hasSkill"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://GHRJ.com/grh#Skill"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://GHRJ.com/grh#doTraining"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://GHRJ.com/grh#Training"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://GHRJ.com/grh#Supervisor">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://GHRJ.com/grh#supervises"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://GHRJ.com/grh#Employee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://GHRJ.com/grh#Training">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://GHRJ.com/grh#gives"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://GHRJ.com/grh#Skill"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://GHRJ.com/grh#Project">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://GHRJ.com/grh#need"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://GHRJ.com/grh#Employee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
 
 
-    
+    <!-- Individuals -->
+    <grh:Employee rdf:about="http://GHRJ.com/grh#JohnDoe">
+        <grh:nom>John</grh:nom>
+        <grh:prenom>Doe</grh:prenom>
+        <grh:dateNaissance>1985-03-15</grh:dateNaissance>
+        <grh:genre>Male</grh:genre>
+        <grh:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50000</grh:salary>
+        <grh:email>john.doe@example.com</grh:email>
+        <grh:occupies rdf:resource="http://GHRJ.com/grh#SoftwareEngineer"/>
+        <grh:worksOn rdf:resource="http://GHRJ.com/grh#WebsiteDevelopment"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#Programming"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#DataAnalysis"/>
+        <grh:doTraining rdf:resource="http://GHRJ.com/grh#IntroductionToProgramming"/>
+        <grh:memberOf rdf:resource="http://GHRJ.com/grh#IT"/>
+    </grh:Employee>
+    <grh:Employee rdf:about="http://GHRJ.com/grh#AliceSmith">
+        <grh:nom>Alice</grh:nom>
+        <grh:prenom>Smith</grh:prenom>
+        <grh:dateNaissance>1990-07-22</grh:dateNaissance>
+        <grh:genre>Female</grh:genre>
+        <grh:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60000</grh:salary>
+        <grh:email>alice.smith@example.com</grh:email>
+        <grh:occupies rdf:resource="http://GHRJ.com/grh#DataAnalyst"/>
+        <grh:worksOn rdf:resource="http://GHRJ.com/grh#ProductLaunch"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#DataAnalysis"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#Programming"/>
+        <grh:doTraining rdf:resource="http://GHRJ.com/grh#IntroductionToProgramming"/>
+        <grh:memberOf rdf:resource="http://GHRJ.com/grh#IT"/>
+    </grh:Employee>
+    <grh:Employee rdf:about="http://GHRJ.com/grh#MichaelJohnson">
+        <grh:nom>Michael</grh:nom>
+        <grh:prenom>Johnson</grh:prenom>
+        <grh:dateNaissance>1988-11-10</grh:dateNaissance>
+        <grh:genre>Male</grh:genre>
+        <grh:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55000</grh:salary>
+        <grh:email>michael.johnson@example.com</grh:email>
+        <grh:occupies rdf:resource="http://GHRJ.com/grh#HRManager"/>
+        <grh:worksOn rdf:resource="http://GHRJ.com/grh#EventPlanning"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#ProblemSolving"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#Communication"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#ProjectManagement"/>
+        <grh:doTraining rdf:resource="http://GHRJ.com/grh#IntroductionToProgramming"/>
+        <grh:memberOf rdf:resource="http://GHRJ.com/grh#Marketing"/>
+    </grh:Employee>
+    <grh:Supervisor rdf:about="http://GHRJ.com/grh#EmilyBrown">
+        <grh:nom>Emily</grh:nom>
+        <grh:prenom>Brown</grh:prenom>
+        <grh:dateNaissance>1995-05-28</grh:dateNaissance>
+        <grh:genre>Female</grh:genre>
+        <grh:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52000</grh:salary>
+        <grh:email>emily.brown@example.com</grh:email>
+        <grh:occupies rdf:resource="http://GHRJ.com/grh#MarketingDirector"/>
+        <grh:worksOn rdf:resource="http://GHRJ.com/grh#MarketingCampaign"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#Communication"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#ProblemSolving"/>
+        <grh:memberOf rdf:resource="http://GHRJ.com/grh#HumanResources"/>
+    </grh:Supervisor>
+    <grh:Supervisor rdf:about="http://GHRJ.com/grh#DavidWilson">
+        <grh:nom>David</grh:nom>
+        <grh:prenom>Wilson</grh:prenom>
+        <grh:dateNaissance>1980-09-03</grh:dateNaissance>
+        <grh:genre>Male</grh:genre>
+        <grh:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58000</grh:salary>
+        <grh:email>david.wilson@example.com</grh:email>
+        <grh:occupies rdf:resource="http://GHRJ.com/grh#ProjectManager"/>
+        <grh:worksOn rdf:resource="http://GHRJ.com/grh#EventPlanning"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#Communication"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#ProjectManagement"/>
+        <grh:doTraining rdf:resource="http://GHRJ.com/grh#IntroductionToProgramming"/>
+        <grh:memberOf rdf:resource="http://GHRJ.com/grh#Marketing"/>
+    </grh:Supervisor>
+    <grh:Supervisor rdf:about="http://GHRJ.com/grh#DavidosWilsonos">
+        <grh:nom>Davidos</grh:nom>
+        <grh:prenom>Wilsonos</grh:prenom>
+        <grh:dateNaissance>1980-09-03</grh:dateNaissance>
+        <grh:genre>Male</grh:genre>
+        <grh:salary rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58000</grh:salary>
+        <grh:email>davidos.wilsonos@example.com</grh:email>
+        <grh:occupies rdf:resource="http://GHRJ.com/grh#ProjectManager"/>
+        <grh:worksOn rdf:resource="http://GHRJ.com/grh#EventPlanning"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#Communication"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#ProjectManagement"/>
+        <grh:hasSkill rdf:resource="http://GHRJ.com/grh#Programming"/>
+        <grh:doTraining rdf:resource="http://GHRJ.com/grh#IntroductionToProgramming"/>
+        <grh:memberOf rdf:resource="http://GHRJ.com/grh#IT"/>
+    </grh:Supervisor>
 
+    <grh:Skill rdf:about="http://GHRJ.com/grh#Programming">
+        <grh:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Programming</grh:title>
+    </grh:Skill>
+    <grh:Skill rdf:about="http://GHRJ.com/grh#DataAnalysis">
+        <grh:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data Analysis</grh:title>
+    </grh:Skill>
+    <grh:Skill rdf:about="http://GHRJ.com/grh#ProjectManagement">
+        <grh:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Project Management</grh:title>
+    </grh:Skill>
+    <grh:Skill rdf:about="http://GHRJ.com/grh#Communication">
+        <grh:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Communication</grh:title>
+    </grh:Skill>
+    <grh:Skill rdf:about="http://GHRJ.com/grh#ProblemSolving">
+        <grh:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Problem Solving</grh:title>
+    </grh:Skill>
+
+    <grh:Training rdf:about="http://GHRJ.com/grh#IntroductionToProgramming">
+        <grh:trainingtitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Introduction to Programming</grh:trainingtitle>
+        <grh:duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3 days</grh:duration>
+        <grh:price rdf:datatype="http://www.w3.org/2001/XMLSchema#string">$300</grh:price>
+        <grh:gives rdf:resource="http://GHRJ.com/grh#Programming"/>
+        <grh:gives rdf:resource="http://GHRJ.com/grh#DataAnalysis"/>
+        <grh:gives rdf:resource="http://GHRJ.com/grh#ProblemSolving"/>
+    </grh:Training>
+    <grh:Training rdf:about="http://GHRJ.com/grh#DataAnalysisFundamentals">
+        <grh:trainingtitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data Analysis Fundamentals</grh:trainingtitle>
+        <grh:duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2 days</grh:duration>
+        <grh:price rdf:datatype="http://www.w3.org/2001/XMLSchema#string">$250</grh:price>
+        <grh:gives rdf:resource="http://GHRJ.com/grh#DataAnalysis"/>
+    </grh:Training>
+    <grh:Training rdf:about="http://GHRJ.com/grh#ProjectManagementBasics">
+        <grh:trainingtitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Project Management Basics</grh:trainingtitle>
+        <grh:duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 week</grh:duration>
+        <grh:price rdf:datatype="http://www.w3.org/2001/XMLSchema#string">$500</grh:price>
+        <grh:gives rdf:resource="http://GHRJ.com/grh#ProjectManagement"/>
+        <grh:gives rdf:resource="http://GHRJ.com/grh#Communication"/>
+        <grh:gives rdf:resource="http://GHRJ.com/grh#ProblemSolving"/>
+    </grh:Training>
+    <grh:Training rdf:about="http://GHRJ.com/grh#EffectiveCommunicationWorkshop">
+        <grh:trainingtitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Effective Communication Workshop</grh:trainingtitle>
+        <grh:duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 day</grh:duration>
+        <grh:price rdf:datatype="http://www.w3.org/2001/XMLSchema#string">$150</grh:price>
+        <grh:gives rdf:resource="http://GHRJ.com/grh#Communication"/>
+        <grh:gives rdf:resource="http://GHRJ.com/grh#ProblemSolving"/>
+    </grh:Training>
+    <grh:Training rdf:about="http://GHRJ.com/grh#ProblemSolvingTechniques">
+        <grh:trainingtitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Problem-Solving Techniques</grh:trainingtitle>
+        <grh:duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2 days</grh:duration>
+        <grh:price rdf:datatype="http://www.w3.org/2001/XMLSchema#string">$200</grh:price>
+        <grh:gives rdf:resource="http://GHRJ.com/grh#ProblemSolving"/>
+        <grh:gives rdf:resource="http://GHRJ.com/grh#Communication"/>
+    </grh:Training>
+
+    <grh:Project rdf:about="http://GHRJ.com/grh#WebsiteDevelopment">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Website Development</grh:name>
+        <grh:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-06-01</grh:startDate>
+        <grh:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-12-31</grh:endDate>
+        <grh:budget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10000</grh:budget>
+        <grh:need rdf:resource="http://GHRJ.com/grh#JohnDoe"/>
+        <grh:requireForProject rdf:resource="http://GHRJ.com/grh#Programming"/>
+        <grh:supervisedBy rdf:resource="http://GHRJ.com/grh#EmilyBrown"/>
+    </grh:Project>
+    <grh:Project rdf:about="http://GHRJ.com/grh#MarketingCampaign">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marketing Campaign</grh:name>
+        <grh:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-07-15</grh:startDate>
+        <grh:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-09-30</grh:endDate>
+        <grh:budget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</grh:budget>
+        <grh:need rdf:resource="http://GHRJ.com/grh#AliceSmith"/>
+        <grh:requireForProject rdf:resource="http://GHRJ.com/grh#Communication"/>
+        <grh:supervisedBy rdf:resource="http://GHRJ.com/grh#DavidWilson"/>
+    </grh:Project>
+    <grh:Project rdf:about="http://GHRJ.com/grh#ProductLaunch">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Product Launch</grh:name>
+        <grh:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-08-01</grh:startDate>
+        <grh:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-11-30</grh:endDate>
+        <grh:budget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12000</grh:budget>
+        <grh:need rdf:resource="http://GHRJ.com/grh#MichaelJohnson"/>
+        <grh:requireForProject rdf:resource="http://GHRJ.com/grh#ProblemSolving"/>
+        <grh:supervisedBy rdf:resource="http://GHRJ.com/grh#EmilyBrown"/>
+    </grh:Project>
+    <grh:Project rdf:about="http://GHRJ.com/grh#EventPlanning">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Event Planning</grh:name>
+        <grh:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-09-01</grh:startDate>
+        <grh:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-10-31</grh:endDate>
+        <grh:budget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</grh:budget>
+        <grh:need rdf:resource="http://GHRJ.com/grh#AliceSmith"/>
+        <grh:requireForProject rdf:resource="http://GHRJ.com/grh#ProjectManagement"/>
+        <grh:supervisedBy rdf:resource="http://GHRJ.com/grh#DavidWilson"/>
+    </grh:Project>
+    <grh:Project rdf:about="http://GHRJ.com/grh#TrainingProgramDevelopment">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Training Program Development</grh:name>
+        <grh:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-10-01</grh:startDate>
+        <grh:endDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-12-31</grh:endDate>
+        <grh:budget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15000</grh:budget>
+        <grh:need rdf:resource="http://GHRJ.com/grh#JohnDoe"/>
+        <grh:requireForProject rdf:resource="http://GHRJ.com/grh#Programming"/>
+        <grh:supervisedBy rdf:resource="http://GHRJ.com/grh#EmilyBrown"/>
+    </grh:Project>
+
+    <grh:Department rdf:about="http://GHRJ.com/grh#HumanResources">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Human Resources</grh:name>
+        <grh:haveAn rdf:resource="http://GHRJ.com/grh#MichaelJohnson"/>
+        <grh:make rdf:resource="http://GHRJ.com/grh#EventPlanning"/>
+        <grh:requireSuperviser rdf:resource="http://GHRJ.com/grh#DavidWilson"/>
+    </grh:Department>
+    <grh:Department rdf:about="http://GHRJ.com/grh#Marketing">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marketing</grh:name>
+        <grh:haveAn rdf:resource="http://GHRJ.com/grh#JohnDoe"/>
+        <grh:make rdf:resource="http://GHRJ.com/grh#MarketingCampaign"/>
+        <grh:requireSuperviser rdf:resource="http://GHRJ.com/grh#EmilyBrown"/>
+    </grh:Department>
+    <grh:Department rdf:about="http://GHRJ.com/grh#IT">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IT</grh:name>
+        <grh:haveAn rdf:resource="http://GHRJ.com/grh#DavidosWilsonos"/>
+        <grh:make rdf:resource="http://GHRJ.com/grh#WebsiteDevelopment"/>
+        <grh:requireSuperviser rdf:resource="http://GHRJ.com/grh#DavidWilson"/>
+    </grh:Department>
+
+    <grh:JobPosition rdf:about="http://GHRJ.com/grh#SoftwareEngineer">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Software Engineer</grh:name>
+        <grh:requireForJobPosition rdf:resource="http://GHRJ.com/grh#Programming"/>
+    </grh:JobPosition>
+    <grh:JobPosition rdf:about="http://GHRJ.com/grh#DataAnalyst">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data Analyst</grh:name>
+        <grh:requireForJobPosition rdf:resource="http://GHRJ.com/grh#DataAnalysis"/>
+    </grh:JobPosition>
+    <grh:JobPosition rdf:about="http://GHRJ.com/grh#HRManager">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HR Manager</grh:name>
+        <grh:requireForJobPosition rdf:resource="http://GHRJ.com/grh#ProjectManagement"/>
+    </grh:JobPosition>
+    <grh:JobPosition rdf:about="http://GHRJ.com/grh#MarketingDirector">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marketing Director</grh:name>
+        <grh:requireForJobPosition rdf:resource="http://GHRJ.com/grh#Communication"/>
+    </grh:JobPosition>
+    <grh:JobPosition rdf:about="http://GHRJ.com/grh#ProjectManager">
+        <grh:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Project Manager</grh:name>
+        <grh:requireForJobPosition rdf:resource="http://GHRJ.com/grh#ProblemSolving"/>
+    </grh:JobPosition>
 </rdf:RDF>
